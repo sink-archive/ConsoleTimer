@@ -54,24 +54,9 @@ namespace ConsoleTimer
 
         private static void ProcessTime(float secondsIn, out int hoursOut, out int minutesOut, out float secondsOut)
         {
-            if (secondsIn < 60)
-            {
-                hoursOut = 0;
-                minutesOut = 0;
-                secondsOut = secondsIn;
-            }
-            else if (secondsIn >= 60 && secondsIn < 360)
-            {
-                hoursOut = 0;
-                minutesOut = (int)Math.Floor(secondsIn / 60);
-                secondsOut = (float)Math.Round(secondsIn - (Math.Floor(secondsIn / 60) * 60), 1);
-            }
-            else
-            {
-                hoursOut = 0;
-                minutesOut = 0;
-                secondsOut = 0;
-            }
+            hoursOut = (int)Math.Floor(secondsIn / 3600);
+            minutesOut = (int)Math.Floor(secondsIn % 3600 / 60);
+            secondsOut = (float)Math.Round(secondsIn % 3600 % 60, 1);
         }
 
         private static void countDown(long targetHours, int targetMinutes, float targetSeconds)
