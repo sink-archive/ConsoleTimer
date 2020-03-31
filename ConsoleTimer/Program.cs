@@ -61,7 +61,35 @@ namespace ConsoleTimer
 
         private static void countDown(long targetHours, int targetMinutes, float targetSeconds)
         {
+            float secondsRaw = targetSeconds + targetMinutes *  60 + targetHours * 3600;
+            float secondsProcessed = 0;
+            int minutes = 0;
+            int hours = 0;
 
+            while (secondsRaw != 0)
+            {
+                ProcessTime(secondsRaw,
+                    out hours,
+                    out minutes,
+                    out secondsProcessed);
+                Console.Clear();
+                Console.WriteLine($"{hours}:{minutes}:{secondsProcessed}");
+                secondsRaw -= 0.1f;
+                secondsRaw = (float)Math.Round(secondsRaw, 1);
+                System.Threading.Thread.Sleep(100);
+            }
+            Console.Clear();
+            Console.Write("Your countdown timer has ended. Would you like to use the timer again [y/n]?");
+            string yesOrNo = Console.ReadLine();
+            Console.Clear();
+            if (yesOrNo.ToLower() == "y")
+            {
+                Main(new string[0]);
+            }
+            else
+            {
+                Environment.Exit(0);
+            }
         }
     }
 }
