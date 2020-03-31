@@ -10,7 +10,10 @@ It can work as:
 ## How to run this application.
 ### Windows
 Just run it. That's all you need to know
-### Mac and Linux
+### Supported Linux
+For the following linux distributions, there is a native package available, just check the releases.
+- Debian 9 (stretch) x64
+### Mac and Unsupported Linux
 If you have Wine (and preferably `wine-mono`) then you're good to go: just run `wine ConsoleTimer.exe`
 
 If you have Mono, then you're good to go: just run `mono ConsoleTimer.exe`
