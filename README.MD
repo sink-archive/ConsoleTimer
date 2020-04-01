@@ -1,6 +1,7 @@
 # ConsoleTimer
 [![Travis CI Build Status](https://travis-ci.com/cainy-a/ConsoleTimer.svg?branch=master)](https://travis-ci.com/cainy-a/ConsoleTimer)
 [![Appveyor Build status](https://ci.appveyor.com/api/projects/status/i347n94ptb0smy93?svg=true)](https://ci.appveyor.com/project/cainy-a/consoletimer)
+[![CodeFactor](https://www.codefactor.io/repository/github/cainy-a/consoletimer/badge)](https://www.codefactor.io/repository/github/cainy-a/consoletimer)
 
 ConsoleTimer is a timer built in C# on Monodevelop, and compiled with Mono.
 It can work as:
