@@ -21,3 +21,5 @@ If you have Mono, then you're good to go: just run `mono ConsoleTimer.exe`
 If not, then download Wine from [their website](https://winehq.org),
 
 or download Mono from [their website](https://mono-project.com), or the [Monodevelop website](https://monodevelop.com)
+
+PS: This commit only exists to test GPG signing; there are no code changes
