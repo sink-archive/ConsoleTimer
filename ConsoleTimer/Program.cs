@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Media;
+using System.Reflection;
 
 namespace ConsoleTimer
 {
@@ -18,7 +20,7 @@ namespace ConsoleTimer
     class MainClass
     {
         // Declare things for audio chime stuffs
-        List<chime> audioChimes = new List<chime>() { new chime("Alarm 1", "./alarm1") };
+        List<chime> audioChimes = new List<chime>() { new chime("Alarm 1", "alarm1.wav") };
 
         public static void Main(string[] args)
         {
@@ -115,7 +117,10 @@ namespace ConsoleTimer
 
         private void PlayChime(string pathToChime)
         {
-
+            SoundPlayer chimePlayer;
+            Assembly assembly;
+            assembly = Assembly.GetExecutingAssembly();
+            chimePlayer = new SoundPlayer(assembly.GetManifestResourceStream(Environment.CurrentDirectory + "/" + pathToChime));
         }
     }
 }
