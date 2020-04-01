@@ -1,9 +1,25 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace ConsoleTimer
 {
+    class chime
+    {
+        string name;
+        string path;
+
+        public chime(string _name, string _path)
+        {
+            name = _name;
+            path = _path;
+        }
+    } // Add custom type
+
     class MainClass
     {
+        // Declare things for audio chime stuffs
+        List<chime> audioChimes = new List<chime>() { new chime("Alarm 1", "./alarm1") };
+
         public static void Main(string[] args)
         {
         restart:;
