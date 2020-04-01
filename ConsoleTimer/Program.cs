@@ -20,13 +20,13 @@ namespace ConsoleTimer
     class MainClass
     {
         // Declare things for audio chime stuffs
-        List<chime> audioChimes = new List<chime>() { new chime("Alarm 1", "alarm1.wav") };
+        static List<chime> audioChimes = new List<chime>() { new chime("Alarm 1", "alarm1.wav") };
         public static short preferredChimeIndex = 0;
 
         public static void Main(string[] args)
         {
         restart:;
-            Console.Write("Would you like to countdown [down] or count up [up]?");
+            Console.Write("Would you like to countdown [down], count up [up], or configure audio chimes [chime] [up|down|chime]?");
             var upOrDown = Console.ReadLine();
 
             switch (upOrDown.ToLower())
@@ -43,6 +43,9 @@ namespace ConsoleTimer
                     float seconds = (float)Convert.ToDouble(Console.ReadLine());
 
                     countDown(hours, minutes, seconds);
+                    break;
+                case "chime":
+                    ConfigureChimes();
                     break;
                 default:
                     Console.Clear();
@@ -111,7 +114,7 @@ namespace ConsoleTimer
             }
         }
 
-        private void ConfigureChimes()
+        private static void ConfigureChimes()
         {
         notHappyWithChime:;
             Console.Clear();
@@ -129,7 +132,7 @@ namespace ConsoleTimer
             }
         }
 
-        private void PlayChime(string pathToChime)
+        private static void PlayChime(string pathToChime)
         {
             SoundPlayer chimePlayer;
             Assembly assembly;
