@@ -5,10 +5,10 @@ using System.Reflection;
 
 namespace ConsoleTimer
 {
-    class chime
+    public class chime
     {
-        public static string name;
-        public static string path;
+        public string name;
+        public string path;
 
         public chime(string _name, string _path)
         {
@@ -21,6 +21,7 @@ namespace ConsoleTimer
     {
         // Declare things for audio chime stuffs
         List<chime> audioChimes = new List<chime>() { new chime("Alarm 1", "alarm1.wav") };
+        public static short preferredChimeIndex = 0;
 
         public static void Main(string[] args)
         {
@@ -112,7 +113,20 @@ namespace ConsoleTimer
 
         private void ConfigureChimes()
         {
-
+        notHappyWithChime:;
+            Console.Clear();
+            Console.Write("What chime would you like to use [use numbers starting with 0 to choose]?");
+            preferredChimeIndex = Convert.ToInt16(Console.ReadLine());
+            PlayChime(audioChimes[preferredChimeIndex].path);
+            Console.Write("Are you happy with this chime [y|n]?");
+            if (Console.ReadLine().ToLower() == "y")
+            {
+                Main(new string[0]);
+            }
+            else
+            {
+                goto notHappyWithChime;
+            }
         }
 
         private void PlayChime(string pathToChime)
