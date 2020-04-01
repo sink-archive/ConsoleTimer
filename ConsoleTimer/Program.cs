@@ -5,8 +5,8 @@ namespace ConsoleTimer
 {
     class chime
     {
-        string name;
-        string path;
+        public static string name;
+        public static string path;
 
         public chime(string _name, string _path)
         {
@@ -106,6 +106,16 @@ namespace ConsoleTimer
             {
                 Environment.Exit(0);
             }
+        }
+
+        private void ConfigureChimes()
+        {
+
+        }
+
+        private void PlayChime(string pathToChime)
+        {
+
         }
     }
 }
