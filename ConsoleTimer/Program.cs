@@ -26,6 +26,7 @@ namespace ConsoleTimer
         public static void Main(string[] args)
         {
         restart:;
+            Console.Clear();
             Console.Write("Would you like to countdown [down], count up [up], or configure audio chimes [chime] [up|down|chime]?");
             var upOrDown = Console.ReadLine();
 
@@ -120,6 +121,13 @@ namespace ConsoleTimer
             Console.Clear();
             Console.Write("What chime would you like to use [use numbers starting with 0 to choose]?");
             preferredChimeIndex = Convert.ToInt16(Console.ReadLine());
+            if (preferredChimeIndex > audioChimes.Count - 1)
+            {
+                Console.WriteLine("That is not a valid chime number");
+                System.Threading.Thread.Sleep(500);
+                goto notHappyWithChime;
+            }
+
             PlayChime(audioChimes[preferredChimeIndex].path);
             Console.Write("Are you happy with this chime [y|n]?");
             if (Console.ReadLine().ToLower() == "y")
@@ -138,6 +146,7 @@ namespace ConsoleTimer
             Assembly assembly;
             assembly = Assembly.GetExecutingAssembly();
             chimePlayer = new SoundPlayer(assembly.GetManifestResourceStream(Environment.CurrentDirectory + "/" + pathToChime));
+            chimePlayer.Play();
         }
     }
 }
